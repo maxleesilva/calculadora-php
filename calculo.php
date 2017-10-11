@@ -1,27 +1,36 @@
 <meta charset="utf-8">
-	<form action="if.php" method="get">
- 
-            Primeiro numero: 
-            <input name="num1" type="text" /> 
-            <br /> <br /> 
+<style>
+    div#calculadora {
+    text-align: center;
+	width: 190px;
+	background-color: grey;
+	box-shadow: 0px 0px 10px black;
+	padding: 10px;
+    }
+</style>
+
+	
+    <div id="calculadora">
+    <form action="calculo.php" method="get">
+    
+            <h1>Vamos Calcular!</h1>
+            <h3>Primeiro número: 
+                <input name="num1" type="int" /></h3> 
+            <h3>Segundo número: 
+                <input name="num2" type="int" /></h3> 
              
-            Segundo numero: 
-            <input name="num2" type="text" /> 
-            <br /> <br /> 
-             
-            Operacao:  
+            <h4>Operação:
             <select name="operacao">
 				<option value="soma"> + </option>
 				<option value="subtracao"> - </option>
 				<option value="multiplicacao"> * </option>
 				<option value="divisao"> / </option>
-            <br /> <br /> 
-             
-            <input type="submit" value="submeter" />     
-            <br /> <br /> 
-             
-        </form>
-	<?php 
+            </select></h4> 
+            <input type="submit" value="Calcular" />     
+            <br/>
+    </form>
+	
+<?php 
 		$x = @$_REQUEST["num1"];
 		$y = @$_REQUEST["num2"];
 		$op = @$_REQUEST["operacao"];
@@ -32,6 +41,7 @@
 		elseif($op=="multiplicacao")
 		$z = $x*$y;
 		else
-		$z = $x/$y;
-		echo "O resultado é: $z";
+		@$z = $x/$y;
+		echo "<h4>O resultado é: $z</h4>";
 	?>
+    </div>
